@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دعوة زفاف أنس ورهف</title>
+<meta name="description" content="يسعدنا دعوتكم لحضور حفل زفاف أنس ورهف">
+<meta property="og:title" content="دعوة زفاف أنس ورهف">
+<meta property="og:description" content="الاثنين 9 نوفمبر 2026 · La Casa D'or، عمّان">
+<meta name="theme-color" content="#6E2A35">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --cream:#FBF3EC;
+    --cream-deep:#F1E1D4;
+    --paper:#F7EAE1;
+    --paper-shade:#EEDACE;
+    --blush:#E7C9C0;
+    --wine:#6E2A35;
+    --wine-deep:#4A1B22;
+    --gold:#B8903D;
+    --gold-soft:#D9B978;
+    --ink:#3B2A25;
+    --ink-soft:#7a675f;
+    --font-display: 'Aref Ruqaa', serif;
+    --font-body: 'Noto Naskh Arabic', serif;
+    --font-latin: 'Cormorant Garamond', serif;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    min-height:100svh;
+    min-height:100vh;
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 20% 0%, var(--cream-deep), transparent 55%),
+      radial-gradient(circle at 85% 100%, var(--blush), transparent 50%),
+      var(--cream);
+    display:flex;
+    justify-content:center;
+    overflow-x:hidden;
+  }
+
+  a{ color:inherit; }
+  button{ font-family:inherit; }
+
+  .ltr{ direction:ltr; unicode-bidi:isolate; }
+
+  /* ---------- ambient background sprigs ---------- */
+  .ambient{ position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+  .ambient-sprig{ position:absolute; width:70px; opacity:.16; color:var(--gold); }
+  .ambient-sprig.a{ top:6%; left:4%; animation: drift 20s ease-in-out infinite alternate; }
+  .ambient-sprig.b{ bottom:8%; right:6%; width:90px; transform:scaleX(-1); color:var(--wine); animation: drift 24s ease-in-out infinite alternate-reverse; }
+
+  @keyframes drift{
+    from{ transform:translateY(0) rotate(0deg); }
+    to{ transform:translateY(18px) rotate(4deg); }
+  }
+  /* ---------- page / card shell ---------- */
+  .page{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:460px;
+    padding:28px 18px 48px;
+  }
+
+  .card{
+    position:relative;
+    background:linear-gradient(180deg, #fffdfa, var(--cream) 60%);
+    border-radius:22px;
+    padding:8px;
+    box-shadow:0 18px 50px -20px rgba(74,27,34,.35);
+  }
+
+  @media (min-width:600px){
+    .page{ padding:56px 24px; }
+    .card{ padding:14px; }
+  }
+
+  /* ================= ENVELOPE SCENE ================= */
+  .envelope-scene{
+    padding:38px 14px 30px;
+    text-align:center;
+    transition:opacity .6s ease .15s;
+  }
+  .stage.open .envelope-scene{ opacity:0; }
+
+  .envelope{
+    position:relative;
+    width:min(70vw,272px);
+    aspect-ratio:3/4;
+    margin:0 auto;
+    perspective:1300px;
+  }
+
+  .flap{
+    position:absolute;
+    inset:0;
+    background:var(--paper);
+  }
+  .flap-left{  clip-path:polygon(0% 0%, 0% 100%, 50% 50%); background:linear-gradient(120deg,var(--paper),var(--paper-shade)); }
+  .flap-right{ clip-path:polygon(100% 0%, 100% 100%, 50% 50%); background:linear-gradient(240deg,var(--paper),var(--paper-shade)); }
+  .flap-bottom{clip-path:polygon(0% 100%, 100% 100%, 50% 50%); background:linear-gradient(0deg,var(--paper-shade),var(--paper)); z-index:1; }
+  .flap-top{
+    clip-path:polygon(0% 0%, 100% 0%, 50% 50%);
+    background:linear-gradient(180deg,#fffdfa,var(--paper));
+    transform-origin:top center;
+    transform:rotateX(0deg);
+    opacity:1;
+    z-index:3;
+    transition:transform .85s cubic-bezier(.6,0,.2,1), opacity .7s ease .15s;
+    box-shadow:0 1px 0 rgba(184,144,61,.35);
+  }
+  .stage.open .flap-top{ transform:rotateX(115deg); opacity:0; }
+
+  .seams{ position:absolute; inset:0; width:100%; height:100%; }
+  .seams line{ stroke:var(--gold); stroke-opacity:.4; stroke-width:.6; vector-effect:non-scaling-stroke; }
+
+  /* botanical accent behind the seal */
+  .sprig-seal{ position:absolute; top:50%; width:56px; opacity:.5; color:var(--gold); z-index:2; }
+  .sprig-seal.left{ left:calc(50% - 60px); transform:translateY(-50%); }
+  .sprig-seal.right{ left:calc(50% + 4px); transform:translateY(-50%) scaleX(-1); }
+
+  /* ---------- wax seal ---------- */
+  .seal{
+    position:absolute; top:50%; left:50%;
+    width:88px; height:88px;
+    transform:translate(-50%,-50%);
+    border:0; padding:0; margin:0;
+    cursor:pointer;
+    border-radius:44% 56% 52% 48% / 48% 44% 56% 52%;
+    background:radial-gradient(circle at 33% 28%, #8c3644, var(--wine) 55%, var(--wine-deep) 100%);
+    box-shadow:0 8px 16px -4px rgba(74,27,34,.55), inset 0 2px 5px rgba(255,255,255,.18), inset 0 -6px 10px rgba(0,0,0,.22);
+    z-index:5;
+  }
+  .seal:focus-visible{ outline:3px solid var(--gold-soft); outline-offset:4px; }
+
+  .seal-face{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-latin); font-weight:600; font-size:1.2rem; letter-spacing:.03em;
+    color:var(--gold-soft);
+  }
+  .seal-face .amp{ font-size:.85em; margin:0 .12em; opacity:.85; }
+  .seal-half{ opacity:0; }
+  .seal-half-left{ clip-path:inset(0 50% 0 0); }
+  .seal-half-right{ clip-path:inset(0 0 0 50%); }
+
+  .stage.crack .seal-whole{ opacity:0; transition:opacity .2s ease; }
+  .stage.crack .seal-half{ opacity:1; }
+  .stage.crack .seal-half-left{ animation:crack-left .65s ease forwards; }
+  .stage.crack .seal-half-right{ animation:crack-right .65s ease forwards; }
+
+  @keyframes crack-left{
+    0%{ transform:translate(0,0) rotate(0); opacity:1; }
+    100%{ transform:translate(-22px,6px) rotate(-16deg); opacity:0; }
+  }
+  @keyframes crack-right{
+    0%{ transform:translate(0,0) rotate(0); opacity:1; }
+    100%{ transform:translate(22px,6px) rotate(16deg); opacity:0; }
+  }
+
+  .hint{
+    margin-top:22px;
+    font-size:.95rem;
+    color:var(--ink-soft);
+    letter-spacing:.01em;
+  }
+  .hint::before{
+    content:"";
+    display:block;
+    width:8px; height:8px;
+    margin:0 auto 10px;
+    border-radius:50%;
+    background:var(--wine);
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ transform:scale(1); opacity:.6; }
+    50%{ transform:scale(1.7); opacity:.15; }
+  }
+
+  /* ================= INVITATION ================= */
+  .invite-card{
+    padding:6px 22px 34px;
+    text-align:center;
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .invite-card.show{ opacity:1; transform:none; }
+
+  .eyebrow{
+    font-family:var(--font-latin);
+    font-size:.78rem;
+    letter-spacing:.32em;
+    color:var(--gold);
+    text-transform:uppercase;
+    direction:ltr;
+  }
+
+  .names{
+    margin:14px 0 6px;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(2.3rem,9vw,3rem);
+    color:var(--wine);
+    line-height:1.25;
+  }
+  .knot{ color:var(--gold); font-size:.5em; vertical-align:.3em; margin:0 .18em; }
+
+  .divider{ width:120px; height:14px; margin:6px auto 18px; color:var(--gold); opacity:.75; }
+  .divider path{ fill:none; stroke:currentColor; stroke-width:1; }
+  .divider circle{ fill:currentColor; }
+
+  .lead{
+    font-size:1.02rem;
+    line-height:1.9;
+    color:var(--ink);
+    max-width:30ch;
+    margin:0 auto 26px;
+  }
+
+  .details{ display:flex; flex-direction:column; gap:14px; margin:0 auto 30px; }
+  .detail{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    font-size:1.02rem;
+  }
+  .detail .icon{ width:19px; height:19px; flex:none; color:var(--wine); fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .detail strong{ font-weight:600; }
+  .detail .venue-name{ font-family:var(--font-latin); font-weight:600; font-size:1.12rem; }
+
+  .countdown-label{
+    font-size:.85rem; color:var(--ink-soft); margin-bottom:12px; letter-spacing:.02em;
+  }
+  .countdown{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
+    max-width:340px; margin:0 auto 32px;
+  }
+  .unit{
+    background:var(--paper);
+    border-radius:14px;
+    padding:10px 4px 8px;
+    box-shadow:inset 0 0 0 1px rgba(184,144,61,.25);
+  }
+  .unit strong{
+    display:block; font-family:var(--font-latin); direction:ltr;
+    font-size:clamp(1.3rem,6vw,1.6rem); font-weight:600; color:var(--wine);
+  }
+  .unit span{ font-size:.68rem; color:var(--ink-soft); }
+
+  .actions{ display:flex; flex-direction:column; gap:12px; max-width:300px; margin:0 auto; }
+  .btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    padding:13px 18px; border-radius:999px;
+    font-size:.98rem; font-weight:600; text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:active{ transform:scale(.97); }
+  .btn:focus-visible{ outline:3px solid var(--gold-soft); outline-offset:3px; }
+  .btn .icon{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+
+  .btn-primary{ background:var(--wine); color:var(--cream); box-shadow:0 10px 20px -8px rgba(74,27,34,.55); }
+  .btn-secondary{ background:transparent; color:var(--wine); box-shadow:inset 0 0 0 1.4px var(--wine); }
+  .btn-tertiary{ background:transparent; color:var(--ink-soft); font-weight:500; font-size:.9rem; }
+
+  .footer-note{
+    margin-top:30px; font-size:.92rem; color:var(--ink-soft); font-style:normal;
+  }
+
+  /* ---------- reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce){
+    .flap-top{ transition:opacity .5s ease; }
+    .stage.open .flap-top{ transform:none; }
+    .seal-half-left, .seal-half-right{ animation:none !important; }
+    .stage.crack .seal-half{ transition:opacity .3s ease; }
+    .ambient-sprig{ animation:none !important; }
+    .hint::before{ animation:none; opacity:.6; }
+    .invite-card{ transition:opacity .4s ease; transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ambient" aria-hidden="true">
+  <svg class="ambient-sprig a" viewBox="0 0 100 200"><path d="M50 195 C48 150 62 130 46 95 C34 68 58 50 44 15" fill="none" stroke="currentColor" stroke-width="1.4"/><ellipse cx="46" cy="150" rx="13" ry="5" transform="rotate(-30 46 150)" fill="currentColor"/><ellipse cx="60" cy="118" rx="12" ry="5" transform="rotate(28 60 118)" fill="currentColor"/><circle cx="44" cy="15" r="4" fill="currentColor"/><circle cx="51" cy="10" r="4" fill="currentColor"/><circle cx="48" cy="21" r="4" fill="currentColor"/><circle cx="39" cy="18" r="4" fill="currentColor"/></svg>
+  <svg class="ambient-sprig b" viewBox="0 0 100 200"><path d="M50 195 C48 150 62 130 46 95 C34 68 58 50 44 15" fill="none" stroke="currentColor" stroke-width="1.4"/><ellipse cx="46" cy="150" rx="13" ry="5" transform="rotate(-30 46 150)" fill="currentColor"/><ellipse cx="60" cy="118" rx="12" ry="5" transform="rotate(28 60 118)" fill="currentColor"/><circle cx="44" cy="15" r="4" fill="currentColor"/><circle cx="51" cy="10" r="4" fill="currentColor"/><circle cx="48" cy="21" r="4" fill="currentColor"/><circle cx="39" cy="18" r="4" fill="currentColor"/></svg>
+</div>
+
+<div class="page">
+  <div class="card">
+    <div class="stage" id="stage">
+
+      <!-- ================= CLOSED ENVELOPE ================= -->
+      <section class="envelope-scene" id="envelopeScene">
+        <div class="envelope">
+          <div class="flap flap-left"></div>
+          <div class="flap flap-right"></div>
+          <div class="flap flap-bottom"></div>
+          <div class="flap flap-top" id="flapTop"></div>
+
+          <svg class="seams" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="0" y1="0" x2="50" y2="50"/>
+            <line x1="100" y1="0" x2="50" y2="50"/>
+            <line x1="0" y1="100" x2="50" y2="50"/>
+            <line x1="100" y1="100" x2="50" y2="50"/>
+          </svg>
+
+          <svg class="sprig-seal left" viewBox="0 0 60 60" aria-hidden="true"><path d="M6 55 C10 40 20 34 18 22 C16 12 26 10 24 2" fill="none" stroke="currentColor" stroke-width="1.3"/><ellipse cx="14" cy="40" rx="8" ry="3.4" transform="rotate(-30 14 40)" fill="currentColor"/><ellipse cx="20" cy="16" rx="7" ry="3" transform="rotate(20 20 16)" fill="currentColor"/></svg>
+          <svg class="sprig-seal right" viewBox="0 0 60 60" aria-hidden="true"><path d="M6 55 C10 40 20 34 18 22 C16 12 26 10 24 2" fill="none" stroke="currentColor" stroke-width="1.3"/><ellipse cx="14" cy="40" rx="8" ry="3.4" transform="rotate(-30 14 40)" fill="currentColor"/><ellipse cx="20" cy="16" rx="7" ry="3" transform="rotate(20 20 16)" fill="currentColor"/></svg>
+
+          <button class="seal" id="sealBtn" type="button" aria-label="افتحوا الدعوة">
+            <span class="seal-face seal-whole ltr">A<span class="amp">&amp;</span>R</span>
+            <span class="seal-face seal-half seal-half-left ltr" aria-hidden="true">A<span class="amp">&amp;</span>R</span>
+            <span class="seal-face seal-half seal-half-right ltr" aria-hidden="true">A<span class="amp">&amp;</span>R</span>
+          </button>
+        </div>
+        <p class="hint">المسوا الختم لفتح الدعوة</p>
+      </section>
+
+      <!-- ================= OPENED INVITATION ================= -->
+      <section class="invite-card" id="inviteCard" hidden>
+        <p class="eyebrow">Wedding Invitation</p>
+        <h1 class="names">أنس<span class="knot">✦</span>رهف</h1>
+
+        <svg class="divider" viewBox="0 0 120 14" aria-hidden="true">
+          <path d="M0 7 H50"/><circle cx="60" cy="7" r="3"/><path d="M70 7 H120"/>
+        </svg>
+
+        <p class="lead">يسعدنا دعوتكم لمشاركتنا فرحتنا، ولحضور حفل زفافنا</p>
+
+        <div class="details">
+          <div class="detail">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+            <strong>الاثنين، 9 نوفمبر 2026</strong>
+          </div>
+          <div class="detail">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
+            <strong>الساعة <span class="ltr">7:30</span> مساءً</strong>
+          </div>
+          <div class="detail">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s7-7.58 7-12.5A7 7 0 0 0 5 9.5C5 14.42 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+            <span class="venue-name ltr">La Casa D'or</span><span>&nbsp;— عمّان</span>
+          </div>
+        </div>
+
+        <p class="countdown-label">العدّ التنازلي لفرحتنا</p>
+        <div class="countdown" aria-live="off">
+          <div class="unit"><strong id="cdDays">00</strong><span>يوم</span></div>
+          <div class="unit"><strong id="cdHours">00</strong><span>ساعة</span></div>
+          <div class="unit"><strong id="cdMins">00</strong><span>دقيقة</span></div>
+          <div class="unit"><strong id="cdSecs">00</strong><span>ثانية</span></div>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" id="rsvpBtn" href="#" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-10-9.3C.5 7 2 3.5 5.7 3.2 8 3 10 4.3 12 6.7 14 4.3 16 3 18.3 3.2 22 3.5 23.5 7 22 10.7 19.5 15.4 12 20 12 20Z"/></svg>
+            تأكيد الحضور
+          </a>
+          <a class="btn btn-secondary" id="calendarBtn" href="#" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+            إضافة إلى التقويم
+          </a>
+          <a class="btn btn-tertiary" href="https://www.google.com/maps/search/?api=1&query=La+Casa+D%27or+Amman+Jordan" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s7-7.58 7-12.5A7 7 0 0 0 5 9.5C5 14.42 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+            موقع القاعة على الخارطة
+          </a>
+        </div>
+
+        <p class="footer-note">حضوركم يُكمّل فرحتنا 🤍</p>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<noscript><style>#inviteCard{ display:block !important; opacity:1 !important; transform:none !important; } #envelopeScene{ display:none !important; }</style></noscript>
+
+<script>
+(function(){
+  var stage = document.getElementById('stage');
+  var sealBtn = document.getElementById('sealBtn');
+  var envelopeScene = document.getElementById('envelopeScene');
+  var inviteCard = document.getElementById('inviteCard');
+  var opened = false;
+
+  function openInvitation(){
+    if(opened) return;
+    opened = true;
+    sealBtn.disabled = true;
+
+    stage.classList.add('crack');
+
+    setTimeout(function(){ stage.classList.add('open'); }, 500);
+
+    setTimeout(function(){
+      envelopeScene.hidden = true;
+      inviteCard.hidden = false;
+      requestAnimationFrame(function(){
+        inviteCard.classList.add('show');
+      });
+    }, 1350);
+  }
+
+  sealBtn.addEventListener('click', openInvitation);
+  sealBtn.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openInvitation(); }
+  });
+
+  /* ---------- countdown ---------- */
+  var target = new Date(2026, 10, 9, 19, 30, 0); // 9 Nov 2026, 7:30 PM
+  var daysEl = document.getElementById('cdDays');
+  var hoursEl = document.getElementById('cdHours');
+  var minsEl = document.getElementById('cdMins');
+  var secsEl = document.getElementById('cdSecs');
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  function tick(){
+    var diff = target.getTime() - Date.now();
+    if(diff < 0) diff = 0;
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor(diff / 3600000) % 24;
+    var m = Math.floor(diff / 60000) % 60;
+    var s = Math.floor(diff / 1000) % 60;
+    daysEl.textContent = pad(d);
+    hoursEl.textContent = pad(h);
+    minsEl.textContent = pad(m);
+    secsEl.textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* ---------- RSVP (WhatsApp) ---------- */
+  // TODO: بدّل الرقم يلي تحت برقم الواتساب تبعك (بصيغة دولية بدون + وبدون صفر البداية)
+  var whatsappNumber = '9627XXXXXXXX';
+  var rsvpText = encodeURIComponent('حبايبنا، بنأكد حضورنا حفل زفاف أنس ورهف بتاريخ 9 نوفمبر 2026 ❤️');
+  document.getElementById('rsvpBtn').href = 'https://wa.me/' + whatsappNumber + '?text=' + rsvpText;
+
+  /* ---------- Add to calendar (Google Calendar) ---------- */
+  var calText = encodeURIComponent("حفل زفاف أنس ورهف");
+  var calDetails = encodeURIComponent("يسعدنا حضوركم حفل زفاف أنس ورهف");
+  var calLocation = encodeURIComponent("La Casa D'or, Amman, Jordan");
+  var calDates = '20261109T193000/20261109T223000';
+  document.getElementById('calendarBtn').href =
+    'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + calText +
+    '&dates=' + calDates + '&details=' + calDetails + '&location=' + calLocation;
+})();
+</script>
+
+</body>
+</html>
