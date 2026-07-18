@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anas & Rahaf • أنس ورهف</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap');
+
+  :root{
+    --ivory:#FAF6EC;
+    --ivory-deep:#F0E7D4;
+    --emerald:#16302A;
+    --emerald-mid:#254A3E;
+    --gold:#C6A44E;
+    --gold-soft:#E7D6A0;
+    --ink:#241E17;
+    --line: rgba(198,164,78,.45);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+
+  body{
+    background:
+      radial-gradient(circle at 50% 0%, #fff 0%, var(--ivory) 55%),
+      var(--ivory);
+    color:var(--ink);
+    font-family:'Tajawal', sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 14px;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image: radial-gradient(var(--gold) 0.6px, transparent 0.6px);
+    background-size: 26px 26px;
+    opacity:.07;
+    pointer-events:none;
+  }
+
+  .card{
+    position:relative;
+    width:100%;
+    max-width:460px;
+    background: var(--ivory);
+    border:1px solid var(--line);
+    box-shadow: 0 30px 60px -25px rgba(22,48,42,.35), 0 2px 0 rgba(198,164,78,.15);
+    padding:46px 30px 40px;
+    text-align:center;
+    overflow:hidden;
+  }
+
+  .corner-tl, .corner-br{
+    position:absolute;
+    width:44px; height:44px;
+    border:1.4px solid var(--gold);
+    opacity:.55;
+  }
+  html[dir="rtl"] .corner-tl{ top:12px; left:12px; border-right:none; border-bottom:none; }
+  html[dir="rtl"] .corner-br{ bottom:12px; right:12px; border-left:none; border-top:none; }
+  html[dir="ltr"] .corner-tl{ top:12px; right:12px; border-left:none; border-bottom:none; }
+  html[dir="ltr"] .corner-br{ bottom:12px; left:12px; border-right:none; border-top:none; }
+
+  /* language switch */
+  .lang-switch{
+    position:relative;
+    display:inline-flex;
+    border:1px solid var(--gold);
+    margin-bottom:26px;
+    overflow:hidden;
+  }
+  .lang-switch button{
+    font-family:'Tajawal', sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.06em;
+    background:none;
+    border:none;
+    padding:8px 18px;
+    color:var(--emerald);
+    cursor:pointer;
+    transition: background .2s ease, color .2s ease;
+  }
+  .lang-switch button.active{
+    background:var(--gold);
+    color:var(--ivory);
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(10px);
+    animation: rise .8s ease forwards;
+  }
+  @keyframes rise{ to{ opacity:1; transform:translateY(0);} }
+  .d1{animation-delay:.05s;} .d2{animation-delay:.2s;} .d3{animation-delay:.35s;}
+  .d4{animation-delay:.5s;} .d5{animation-delay:.65s;} .d6{animation-delay:.8s;}
+  .d7{animation-delay:.95s;}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ animation:none !important; opacity:1 !important; transform:none !important; }
+  }
+
+  .eyebrow{
+    font-size:12.5px;
+    letter-spacing:.12em;
+    color:var(--emerald-mid);
+    font-weight:500;
+    margin-bottom:22px;
+  }
+
+  .medal{
+    position:relative;
+    width:92px; height:92px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    border:1.4px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: radial-gradient(circle at 35% 30%, #fff, var(--ivory-deep) 70%);
+  }
+  .medal::before{
+    content:"";
+    position:absolute;
+    inset:7px;
+    border-radius:50%;
+    border:1px solid var(--gold-soft);
+  }
+  .medal-initials{
+    font-family:'Aref Ruqaa', serif;
+    font-size:26px;
+    color:var(--emerald);
+    letter-spacing:2px;
+    position:relative;
+    top:-1px;
+  }
+  .medal-initials.en{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:24px;
+    letter-spacing:3px;
+  }
+
+  h1.names{
+    font-family:'Aref Ruqaa', serif;
+    font-weight:700;
+    font-size:44px;
+    line-height:1.25;
+    color:var(--emerald);
+    margin:0 0 6px;
+  }
+  h1.names.en{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:40px;
+  }
+  h1.names .amp{
+    display:block;
+    font-size:20px;
+    color:var(--gold);
+    margin:2px 0;
+    font-family:'Tajawal', sans-serif;
+  }
+  h1.names.en .amp{
+    font-family:'Cormorant Garamond', serif;
+    font-style:normal;
+    font-size:22px;
+  }
+
+  .lede{
+    font-size:14.5px;
+    line-height:1.9;
+    color:#4b4234;
+    max-width:320px;
+    margin:14px auto 26px;
+    font-weight:400;
+  }
+
+  .divider{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:26px auto;
+    width:100%;
+    max-width:280px;
+  }
+  .divider .rule{ flex:1; height:1px; background:var(--line); }
+  .divider .diamond{
+    width:6px; height:6px;
+    background:var(--gold);
+    transform:rotate(45deg);
+    flex-shrink:0;
+  }
+
+  .details{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-bottom:8px;
+  }
+
+  .detail-card{
+    background:var(--ivory-deep);
+    border:1px solid var(--line);
+    padding:18px 16px;
+    text-align:center;
+  }
+  .detail-label{
+    font-size:11px;
+    letter-spacing:.1em;
+    color:var(--gold);
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .detail-main{
+    font-family:'Aref Ruqaa', serif;
+    font-size:22px;
+    color:var(--emerald);
+    margin-bottom:2px;
+  }
+  .detail-main.en{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:21px;
+  }
+  .detail-sub{
+    font-size:13px;
+    color:#5c5343;
+  }
+  .venue-latin{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:17px;
+    color:var(--emerald-mid);
+    margin-top:4px;
+  }
+
+  .btn-row{
+    display:flex;
+    gap:10px;
+    margin-top:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    flex:1;
+    min-width:130px;
+    display:inline-block;
+    text-decoration:none;
+    font-family:'Tajawal', sans-serif;
+    font-size:13.5px;
+    font-weight:700;
+    padding:13px 14px;
+    border:1px solid var(--emerald);
+    color:var(--emerald);
+    letter-spacing:.02em;
+    transition: background .25s ease, color .25s ease, transform .15s ease;
+  }
+  .btn:hover{ background:var(--emerald); color:var(--ivory); }
+  .btn:active{ transform:scale(.98); }
+  .btn.gold{
+    border-color:var(--gold);
+    background:var(--gold);
+    color:var(--ivory);
+  }
+  .btn.gold:hover{ background:var(--emerald); border-color:var(--emerald); color:var(--ivory); }
+
+  .closing{
+    margin-top:34px;
+    font-family:'Aref Ruqaa', serif;
+    font-size:19px;
+    color:var(--emerald);
+  }
+  .closing.en{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:19px;
+  }
+
+  .footer{
+    margin-top:22px;
+    font-size:11px;
+    letter-spacing:.08em;
+    color:#8c8064;
+  }
+
+  [data-lang="en"]{ display:none; }
+
+  @media (max-width:380px){
+    .card{ padding:38px 18px 32px; }
+    h1.names{ font-size:36px; }
+    h1.names.en{ font-size:32px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <span class="corner-tl"></span>
+    <span class="corner-br"></span>
+
+    <div class="lang-switch reveal d1">
+      <button id="btnAr" class="active" onclick="setLang('ar')">العربية</button>
+      <button id="btnEn" onclick="setLang('en')">English</button>
+    </div>
+
+    <!-- ===== ARABIC ===== -->
+    <div data-lang="ar">
+      <div class="eyebrow reveal d1">بكل الحب والامتنان</div>
+
+      <div class="medal reveal d2">
+        <span class="medal-initials">أ﴿ر</span>
+      </div>
+
+      <h1 class="names reveal d3">
+        أنـس
+        <span class="amp">و</span>
+        رهـف
+      </h1>
+
+      <p class="lede reveal d4">
+        يسعدنا ويشرفنا حضوركم لمشاركتنا أجمل لحظات حياتنا
+        في حفل زفافنا
+      </p>
+
+      <div class="divider reveal d4">
+        <span class="rule"></span><span class="diamond"></span><span class="rule"></span>
+      </div>
+
+      <div class="details reveal d5">
+        <div class="detail-card">
+          <div class="detail-label">التاريخ والوقت</div>
+          <div class="detail-main">الجمعة، ١١ أيلول (سبتمبر) ٢٠٢٦</div>
+          <div class="detail-sub">الساعة ٧:٣٠ مساءً</div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-label">المكان</div>
+          <div class="detail-main">لا كازا دور</div>
+          <div class="venue-latin">La Casa D'or</div>
+          <div class="btn-row">
+            <a class="btn" href="https://maps.app.goo.gl/ptgyBHV29rhCdvEw8?g_st=ic" target="_blank" rel="noopener">الموقع على الخريطة</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row reveal d6">
+        <a class="btn gold" id="gcalBtnAr" href="#" target="_blank" rel="noopener">إضافة إلى Google Calendar</a>
+        <a class="btn" id="icsBtnAr" href="#" download="Anas-Rahaf-Wedding.ics">تنزيل دعوة للتقويم</a>
+      </div>
+
+      <div class="closing reveal d7">بانتظار حضوركم لنفرح سوا</div>
+
+      <div class="divider reveal d7">
+        <span class="rule"></span><span class="diamond"></span><span class="rule"></span>
+      </div>
+
+      <div class="footer reveal d7">أنس &amp; رهف &nbsp;•&nbsp; ١١ أيلول ٢٠٢٦</div>
+    </div>
+
+    <!-- ===== ENGLISH ===== -->
+    <div data-lang="en">
+      <div class="eyebrow reveal d1">WITH LOVE AND GRATITUDE</div>
+
+      <div class="medal reveal d2">
+        <span class="medal-initials en">A &amp; R</span>
+      </div>
+
+      <h1 class="names en reveal d3">
+        Anas
+        <span class="amp">&amp;</span>
+        Rahaf
+      </h1>
+
+      <p class="lede reveal d4">
+        We joyfully invite you to celebrate the most
+        beautiful moment of our lives at our wedding
+      </p>
+
+      <div class="divider reveal d4">
+        <span class="rule"></span><span class="diamond"></span><span class="rule"></span>
+      </div>
+
+      <div class="details reveal d5">
+        <div class="detail-card">
+          <div class="detail-label">Date &amp; Time</div>
+          <div class="detail-main en">Friday, September 11, 2026</div>
+          <div class="detail-sub">7:30 PM</div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-label">Venue</div>
+          <div class="detail-main en">La Casa D'or</div>
+          <div class="btn-row">
+            <a class="btn" href="https://maps.app.goo.gl/ptgyBHV29rhCdvEw8?g_st=ic" target="_blank" rel="noopener">View on Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row reveal d6">
+        <a class="btn gold" id="gcalBtnEn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
+        <a class="btn" id="icsBtnEn" href="#" download="Anas-Rahaf-Wedding.ics">Download Calendar Invite</a>
+      </div>
+
+      <div class="closing en reveal d7">We can't wait to celebrate with you</div>
+
+      <div class="divider reveal d7">
+        <span class="rule"></span><span class="diamond"></span><span class="rule"></span>
+      </div>
+
+      <div class="footer reveal d7">Anas &amp; Rahaf &nbsp;•&nbsp; September 11, 2026</div>
+    </div>
+
+  </div>
+
+<script>
+  function setLang(lang){
+    document.getElementById('htmlRoot').dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-lang]').forEach(function(el){
+      el.style.display = (el.getAttribute('data-lang') === lang) ? 'block' : 'none';
+    });
+    document.getElementById('btnAr').classList.toggle('active', lang === 'ar');
+    document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+  }
+
+  // Event details — Friday Sept 11, 2026, 7:30 PM Amman (UTC+3) = 16:30 UTC start, 3hr duration
+  var title = "Anas & Rahaf's Wedding | حفل زفاف أنس ورهف";
+  var details = "We joyfully invite you to celebrate with us. يسعدنا حضوركم لمشاركتنا فرحتنا";
+  var location = "La Casa D'or";
+  var startUTC = "20260911T163000Z";
+  var endUTC   = "20260911T193000Z";
+
+  var gcalUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+    + "&text=" + encodeURIComponent(title)
+    + "&dates=" + startUTC + "/" + endUTC
+    + "&details=" + encodeURIComponent(details)
+    + "&location=" + encodeURIComponent(location);
+  document.getElementById('gcalBtnAr').href = gcalUrl;
+  document.getElementById('gcalBtnEn').href = gcalUrl;
+
+  var ics = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Anas-Rahaf-Wedding//AR//EN",
+    "BEGIN:VEVENT",
+    "UID:" + Date.now() + "@anas-rahaf-wedding",
+    "DTSTAMP:" + startUTC,
+    "DTSTART:" + startUTC,
+    "DTEND:" + endUTC,
+    "SUMMARY:" + title,
+    "DESCRIPTION:" + details,
+    "LOCATION:" + location,
+    "END:VEVENT",
+    "END:VCALENDAR"
+  ].join("\r\n");
+  var blob = new Blob([ics], {type: "text/calendar;charset=utf-8"});
+  var icsUrl = URL.createObjectURL(blob);
+  document.getElementById('icsBtnAr').href = icsUrl;
+  document.getElementById('icsBtnEn').href = icsUrl;
+</script>
+
+</body>
+</html>
